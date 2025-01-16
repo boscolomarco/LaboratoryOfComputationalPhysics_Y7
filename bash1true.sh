@@ -16,12 +16,6 @@ fi
 grep "Physics" $file_name > "Physics_$file_name"
 grep "PoD" $file_name > "PoD_$file_name"
 
-#Family name(s),Given name(s),E-mail,Master program
-#while IFS="," read Surname Name mail course
-#do
-#	echo "$Surname $Name $mail $course"
-#done < <(tail -n +2 $file_name)
-
 max_letter=""
 max_count=0
 for k in {A..Z}
@@ -42,6 +36,12 @@ do
 	tail -n +2 $file_name | awk -v var=$i '{ if(NR%18==var ) print $0 }' > "$i Modulo 18 $file_name"
 	#$0 è l'intera riga in awk
 done
+
+#Family name(s),Given name(s),E-mail,Master program
+#while IFS="," read Surname Name mail course
+#do
+#	echo "$Surname $Name $mail $course"
+#done < <(tail -n +2 $file_name)
 
 
 
