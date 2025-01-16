@@ -32,7 +32,10 @@ mkdir -p files_ex_bash2
 cd files_ex_bash2
 for (( k=1;k<=$i;k++ )) 
 do
-	awk  -v div=$k ' { for (j=1;j<=NF;j++) $j= sprintf("%.2f",$j/div); print $0  }' "../$file_output" > "divisione_$k.txt"
+	awk -v div=$k ' { for(j=1;j<=NF;j++) {$j=sprintf("%.2f",$j/div)} print $0 } ' "../$file_output" > "divisione_$k.txt"
+	#PROVA PER SPORT PER CAPIRE AWK
+	#awk  -v div=$k ' { for (j=1;j<=NF;j++) {$j= sprintf("%.2f",$j/div); count++;} print $0  } END {print count}' "../$file_output" > "divisione_$k.txt"
+	
 	#awk  -v div=$k ' { for (j=1;j<=NF;j++) $j= sprintf("%.2f",$j/div) }1' "../$file_output" > "divisione_$k.txt"
 	#1 in }1" super importante perché è quello che forza la riga ad essere stampata
 done

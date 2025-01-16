@@ -9,7 +9,9 @@ fi
 tail -n +2 "BASH3inventato.txt" | awk 'BEGIN {FS=",";OFS="-"}{print NR,$1,$2}'
 
 
-# awk ' BEGIN {}   { for(i=1;i<NF;i++) comando nel for ; comando pensi fuori dal for; comando fuori dal for}    END{} '
+# awk ' BEGIN {}   { for(i=1;i<NF;i++) {comando nel for ; comando nel for;} comando fuori dal for}    END{} '
+# ad esempio
+# awk  -v div=$k ' { for (j=1;j<=NF;j++) {$j= sprintf("%.2f",$j/div); count++;} print $0  }' "../$file_output" > "divisione_$k.txt"
 
 : << COMMENT
 
