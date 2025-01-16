@@ -9,7 +9,7 @@ fi
 tail -n +2 "BASH3inventato.txt" | awk 'BEGIN {FS=",";OFS="-"}{print NR,$1,$2}'
 
 
-# awk ' BEGIN {}   { for(i=1;i<NF;i++) comando nel for 1; comando nel for 2; comando nel for 3 }    END{} '
+# awk ' BEGIN {}   { for(i=1;i<NF;i++) comando nel for ; comando pensi fuori dal for; comando fuori dal for}    END{} '
 
 : << COMMENT
 
