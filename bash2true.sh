@@ -2,7 +2,7 @@
 
 file_input="data.csv"
 file_output="data.txt"
-grep -v "^#" $file_input | sed "s/, / /g" > $file_output
+grep -v "^#" $file_input | sed "s/, / /g" > $file_output #s per substitute ed g per global
 
 even=$(awk "{ for (i=1;i<=NF;i++) if ($i%2==0) count++ } END { print count}" $file_output )
 echo "i numeri pari sono $even"
@@ -14,6 +14,7 @@ while read x y z x1 y1 z1
 do
 	distance=$(echo "sqrt($x^2+$y^2+$z^2)" | bc -l )
 	if (( $(echo "$distance > $thresold" | bc -l ) ))
+	#devo fare così perché distance e thresold non sono numeri interi, senno potevo fare if [ $var1 -gt $var2 ]
 	then
 		echo "$x $y $z $x1 $y1 $z1"
 		((over++))
