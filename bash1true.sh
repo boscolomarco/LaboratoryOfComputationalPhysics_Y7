@@ -20,7 +20,7 @@ max_letter=""
 max_count=0
 for k in {A..Z}
 do
-	count=$( tail -n +2 $file_name | grep -c "^$k")
+	count=$( tail -n +2 $file_name | tr '[:lower:]' '[:upper:]' | grep -c "^$k")
 	echo "Surnames that start with $k are $count"
 	if [ $count -gt $max_count ]
 	then
